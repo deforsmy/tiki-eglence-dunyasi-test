@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Tiki Eğlence Dünyası - Aday Değerlendirme Testi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-slate-900">
+
+  <!-- Header -->
+  <header class="bg-slate-800/80 backdrop-blur border-b border-slate-700/60 sticky top-0 z-20 px-4 py-3 shadow-md">
+    <div class="max-w-md mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 to-rose-500 flex items-center justify-center shadow-lg shadow-amber-500/20 text-white font-black text-lg">
+          T
+        </div>
+        <div>
+          <h1 class="font-bold text-base tracking-tight text-white flex items-center gap-1.5">
+            Tiki Eğlence Dünyası
+          </h1>
+          <p class="text-xs text-slate-400">Aday Yetkinlik ve Durum Testi</p>
+        </div>
+      </div>
+      <span id="badgeStep" class="text-xs bg-slate-700/80 text-amber-400 font-semibold px-2.5 py-1 rounded-full border border-amber-500/20">
+        Giriş
+      </span>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-md w-full mx-auto p-4 flex flex-col justify-center">
+
+    <!-- Screen 1: Registration Form -->
+    <section id="stepIntro" class="space-y-4">
+      <div class="bg-slate-800 border border-slate-700/80 rounded-2xl p-5 shadow-xl space-y-4">
+        <div class="space-y-1">
+          <div class="inline-flex items-center gap-1.5 text-xs text-amber-400 font-semibold bg-amber-500/10 px-2.5 py-1 rounded-md mb-1">
+            <i class="fa-solid fa-clipboard-check"></i> 8 Pratik Vaka Sorusu
+          </div>
+          <h2 class="text-xl font-bold text-white">Aday Bilgi Formu</h2>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Lütfen formu eksiksiz doldurun. Sorular, park içerisinde karşılaşabileceğiniz gerçek durumlara vereceğiniz tepkileri ölçer.
+          </p>
+        </div>
+
+        <form id="candidateForm" class="space-y-3.5 pt-2">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Ad Soyad</label>
+            <div class="relative">
+              <i class="fa-solid fa-user absolute left-3.5 top-3.5 text-slate-500 text-sm"></i>
+              <input type="text" id="candName" required placeholder="Adınız Soyadınız"
+                class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-10 pr-3 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Telefon Numarası</label>
+            <div class="relative">
+              <i class="fa-solid fa-phone absolute left-3.5 top-3.5 text-slate-500 text-sm"></i>
+              <input type="tel" id="candPhone" required placeholder="05XX XXX XX XX"
+                class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-10 pr-3 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Başvurulan Pozisyon</label>
+            <div class="relative">
+              <i class="fa-solid fa-briefcase absolute left-3.5 top-3.5 text-slate-500 text-sm"></i>
+              <select id="candRole" required
+                class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-10 pr-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 appearance-none">
+                <option value="Alan Görevlisi / Park İçi Operasyon">Alan Görevlisi (Oyun Alanı & Cihazlar)</option>
+                <option value="Broşür Dağıtım / Saha Tanıtım">Broşür Dağıtım ve Saha Tanıtım</option>
+                <option value="Her İkisi de Uygun">Her İki Pozisyon da Uygun</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl text-xs text-amber-200/90 leading-tight">
+            <i class="fa-solid fa-triangle-exclamation mr-1 text-amber-400"></i>
+            Telefon ve dikkat dağınıklığı tespiti için sorular süre bazlı değil, tutarlılık ve refleks odaklıdır.
+          </div>
+
+          <button type="submit"
+            class="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-600 hover:to-rose-600 text-slate-950 font-bold text-sm rounded-xl shadow-lg shadow-amber-500/25 active:scale-[0.98] transition flex items-center justify-center gap-2">
+            <span>Teste Başla</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Screen 2: Quiz -->
+    <section id="stepQuiz" class="hidden space-y-4">
+      <!-- Progress Bar -->
+      <div class="space-y-1.5">
+        <div class="flex justify-between items-center text-xs">
+          <span id="questionCategory" class="text-amber-400 font-semibold uppercase tracking-wider text-[11px]"></span>
+          <span id="progressText" class="text-slate-400 font-mono">1/8</span>
+        </div>
+        <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden border border-slate-700/60">
+          <div id="progressBar" class="h-full bg-gradient-to-r from-amber-500 to-rose-500 transition-all duration-300 w-0"></div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 shadow-xl space-y-4">
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 rounded-lg bg-slate-700/70 text-amber-400 flex items-center justify-center font-bold text-sm shrink-0 mt-0.5" id="qBadge">
+            1
+          </div>
+          <h3 id="questionText" class="text-base font-semibold text-white leading-snug"></h3>
+        </div>
+
+        <!-- Options Container -->
+        <div id="optionsContainer" class="space-y-2.5 pt-1">
+          <!-- Dynamic Buttons will be injected here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 3: Results & Summary -->
+    <section id="stepResult" class="hidden space-y-4">
+      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl text-center space-y-5">
+        <div id="resultIconWrapper" class="w-16 h-16 rounded-2xl mx-auto flex items-center justify-center text-3xl shadow-lg"></div>
+
+        <div class="space-y-1">
+          <p id="candidateSummary" class="text-xs text-slate-400 font-medium"></p>
+          <h2 id="resultTitle" class="text-2xl font-bold text-white"></h2>
+          <div class="inline-block px-3 py-1 bg-slate-900 border border-slate-700 rounded-full text-xs font-mono font-semibold" id="scoreBadge"></div>
+        </div>
+
+        <p id="resultFeedback" class="text-xs text-slate-300 bg-slate-900/60 p-4 rounded-xl border border-slate-700/60 leading-relaxed text-left"></p>
+
+        <!-- Competency Breakdown -->
+        <div class="text-left space-y-2 pt-2 border-t border-slate-700/80">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Yetkinlik Değerlendirmesi:</h4>
+          <div class="grid grid-cols-2 gap-2 text-xs" id="breakdownGrid">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Manager WhatsApp / Copy Actions -->
+        <div class="pt-2 space-y-2">
+          <button id="sendWhatsappBtn"
+            class="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 active:scale-[0.98] transition">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>Sonucu Yetkiliye İlet (WhatsApp)</span>
+          </button>
+
+          <button id="copyResultBtn"
+            class="w-full py-2.5 px-4 bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold text-xs rounded-xl flex items-center justify-center gap-2 transition">
+            <i class="fa-solid fa-copy"></i>
+            <span>Sonuç Özetini Kopyala</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="py-3 text-center text-[11px] text-slate-500 border-t border-slate-800">
+    Tiki Eğlence Dünyası &bull; İK Değerlendirme Sistemi
+  </footer>
+
+  <script>
+    // Question Bank tailored for Tiki Eğlence Dünyası (Joypark/Playland style)
+    const questions = [
+      {
+        category: "Telefon & Dikkatsizlik",
+        text: "Oyun alanında mesai esnasındasın. O an içeride sadece 2 çocuk var ve ortam çok sakin. Cebindeki telefona bir bildirim geldi. Ne yaparsın?",
+        options: [
+          { text: "Hızlıca kimin yazdığına bakar, acil değilse geri cebime koyarım.", score: 0, tag: "Dikkatsizlik Riski" },
+          { text: "Mesai bitene kadar telefonumu sessizde dolapta/cepte tutar, çocukları kesintisiz gözlemlerim.", score: 10, tag: "Sorumluluk" },
+          { text: "Çocuklar anne-babasının yanında olduğu için 1-2 dakika sosyal medyaya göz atarım.", score: 0, tag: "Yetersiz Odak" },
+          { text: "Müdüre belli etmeden gizlice masanın altından cevap yazarım.", score: -5, tag: "İhlal Eğilimi" }
+        ]
+      },
+      {
+        category: "Kriz Yönetimi & Çocuk Güvenliği",
+        text: "Trampolin veya top havuzunda iki çocuk aynı oyuncak için itişmeye ve kavga etmeye başladı, biri ağlıyor. İlk tepkin ne olur?",
+        options: [
+          { text: "Sertçe 'Hemen durun yoksa ikinizi de alandan çıkarırım!' diye bağırırım.", score: 0, tag: "Hatalı İletişim" },
+          { text: "Durumu velilerine bırakır, onların müdahale etmesini beklerim.", score: 2, tag: "İnisiyatifsizlik" },
+          { text: "Aralarına girip sakin ve şefkatli bir ses tonuyla temas kurar, çocukları ayırıp dikkatlerini başka oyuna çekerim.", score: 10, tag: "Kriz Yönetimi" },
+          { text: "Hemen güvenlik çağırıp olayı büyütürüm.", score: 3, tag: "Aşırı Tepki" }
+        ]
+      },
+      {
+        category: "Öfkeli Veli & Sabır",
+        text: "Bir veli koşarak sana geliyor ve 'Çocuğumun kolu çizilmiş, burada kimse bakmıyor mu, ne biçim işletme burası!' diye bağırıyor. Ne yaparsın?",
+        options: [
+          { text: "'Ben tek başımayım, her çocuğun peşinden koşamam hanımefendi/beyefendi' derim.", score: -5, tag: "Kavgacı Tutum" },
+          { text: "Sakinliğimi korur, 'Çok haklısınız, hemen küçük beyefendiye/hanımefendiye bakalım' diyerek ilk yardım dolabını açar ve yetkiliye haber veririm.", score: 10, tag: "Müşteri İletişimi" },
+          { text: "Cevap vermez, arkamı dönüp müdürü çağırmaya giderim.", score: 2, tag: "Zayıf Empati" },
+          { text: "'Burası oyun parkı, düşüp kalkacaklar tabii ki' diyerek olayı geçiştiririm.", score: -2, tag: "Duyarsızlık" }
+        ]
+      },
+      {
+        category: "Broşür Dağıtımı & Beden Dili",
+        text: "AVM girişinde veya koridorda broşür dağıtıyorsun. Çoğu insan kafasını çevirip yüzüne bakmıyor veya elini kaldırıp geçiyor. Nasıl davranırsın?",
+        options: [
+          { text: "Moralimi bozarım, kimse almıyorsa bir köşeye yaslanıp beklerim.", score: 0, tag: "Düşük Motivasyon" },
+          { text: "İnsanların ellerine zorla broşür tutuşturmaya çalışırım.", score: -2, tag: "Rahatsız Edici Yaklaşım" },
+          { text: "Özellikle çocuklu aileleri seçer, güler yüzle 'İyi günler, çocuk eğlence dünyamıza hoş geldiniz' diyerek göz temasıyla sunarım.", score: 10, tag: "Saha Becerisi" },
+          { text: "Broşürleri hızlı bitirmek için çöp kutusuna veya masalara toplu bırakırım.", score: -10, tag: "Güven Problemi" }
+        ]
+      },
+      {
+        category: "Kayıp Çocuk Senaryosu",
+        text: "Oyun alanının çıkış kapısında tek başına durup ağlayan 4-5 yaşlarında bir çocuk fark ettin, velisi yanında yok. Ne yaparsın?",
+        options: [
+          { text: "Çocuğun yanına çöker, boy hizasına gelir, güven verici bir tonla adını sorar ve hemen anons/telsizle veliyi aratırım.", score: 10, tag: "Çocuk Güvenliği" },
+          { text: "Alandan dışarı çıkarıp AVM içinde ailesini aramaya başlarım.", score: 2, tag: "Hatalı Protokol" },
+          { text: "'Burada bekle birazdan annen gelir' diyip işime devam ederim.", score: -10, tag: "Ağır İhmal" },
+          { text: "Ağlamasın diye hemen cebimden çikolata/şeker veririm.", score: 1, tag: "Alerji Riski" }
+        ]
+      },
+      {
+        category: "Hareketlilik & Enerji",
+        text: "Park hafta sonu çok kalabalık. Ayakta durmaktan yoruldun. Görev esnasında hangisini yaparsın?",
+        options: [
+          { text: "Bir oyun makinesinin kenarına oturur dinlenirim.", score: 2, tag: "Düşük Enerji" },
+          { text: "Sürekli alan içinde yürüyerek hareket eder, çocukların cihazları güvenli kullanmasını aktif şekilde denetlerim.", score: 10, tag: "Yüksek Performans" },
+          { text: "Diğer personelin yanına gidip sohbet ederek vakit geçiririm.", score: 0, tag: "İşten Kaytarma" },
+          { text: "Gözüm kararınca tuvalete gidip 30 dakika orada dinlenirim.", score: -5, tag: "İhlal Eğilimi" }
+        ]
+      },
+      {
+        category: "Hijyen & Düzen Hassasiyeti",
+        text: "Top havuzunda bir çocuğun çorabının olmadığını veya alana ayakkabıyla girdiğini gördün. Nasıl müdahale edersin?",
+        options: [
+          { text: "Görmezden gelirim, tek bir çocuktan bir şey olmaz.", score: -5, tag: "Kural İhmali" },
+          { text: "Çocuğu kolundan tutup hemen dışarı çekerim.", score: 0, tag: "Kaba Yaklaşım" },
+          { text: "Velisine güleryüzle kuralın tüm çocukların sağlığı için olduğunu belirtip galoş veya kaydırmaz çorap temin etmesini rica ederim.", score: 10, tag: "Kural & Nezaket" },
+          { text: "Mikrofonla herkesin içinde veliyi ifşa ederim.", score: -2, tag: "Hatalı İletişim" }
+        ]
+      },
+      {
+        category: "İş Ahlakı & Takım Ruhu",
+        text: "Mesai bitimine 15 dakika kala alanın diğer tarafındaki arkadaşın yoğunluktan zorlanıyor, senin tarafın ise boşaldı. Ne yaparsın?",
+        options: [
+          { text: "Benim alanım temiz, saatimin dolmasını beklerim.", score: 0, tag: "Bireyselci" },
+          { text: "Hemen arkadaşımın yanına gidip destek verir, alanı birlikte toparlayıp öyle çıkarız.", score: 10, tag: "Ekip Çalışması" },
+          { text: "Erkenden soyunma odasına gidip üstümü değiştiririm.", score: -5, tag: "Sorumsuzluk" },
+          { text: "Arkadaşıma uzaktan akıl veririm.", score: 1, tag: "Pasif Destek" }
+        ]
+      }
+    ];
+
+    let currentIdx = 0;
+    let totalScore = 0;
+    let candidateData = {};
+    let recordedTags = [];
+
+    const stepIntro = document.getElementById("stepIntro");
+    const stepQuiz = document.getElementById("stepQuiz");
+    const stepResult = document.getElementById("stepResult");
+    const badgeStep = document.getElementById("badgeStep");
+
+    const candidateForm = document.getElementById("candidateForm");
+    const questionText = document.getElementById("questionText");
+    const questionCategory = document.getElementById("questionCategory");
+    const optionsContainer = document.getElementById("optionsContainer");
+    const progressBar = document.getElementById("progressBar");
+    const progressText = document.getElementById("progressText");
+    const qBadge = document.getElementById("qBadge");
+
+    // Intro submit
+    candidateForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      candidateData = {
+        name: document.getElementById("candName").value.trim(),
+        phone: document.getElementById("candPhone").value.trim(),
+        role: document.getElementById("candRole").value
+      };
+
+      stepIntro.classList.add("hidden");
+      stepQuiz.classList.remove("hidden");
+      badgeStep.textContent = "Soru 1/" + questions.length;
+      renderQuestion();
+    });
+
+    function renderQuestion() {
+      const q = questions[currentIdx];
+      questionText.textContent = q.text;
+      questionCategory.textContent = q.category;
+      qBadge.textContent = currentIdx + 1;
+      progressText.textContent = `${currentIdx + 1}/${questions.length}`;
+
+      const pct = ((currentIdx) / questions.length) * 100;
+      progressBar.style.width = `${pct}%`;
+
+      optionsContainer.innerHTML = "";
+
+      // Shuffle options to prevent pattern guessing
+      const shuffledOptions = [...q.options].sort(() => Math.random() - 0.5);
+
+      shuffledOptions.forEach((opt) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "w-full text-left p-3.5 bg-slate-900/90 hover:bg-slate-700/80 active:bg-amber-500/20 border border-slate-700/80 hover:border-amber-500/50 rounded-xl text-xs sm:text-sm text-slate-200 transition duration-150 flex items-start gap-2.5";
+        btn.innerHTML = `
+          <span class="w-5 h-5 rounded-full border border-slate-600 flex items-center justify-center shrink-0 mt-0.5 text-[10px] text-slate-400 font-bold">&bull;</span>
+          <span class="leading-relaxed">${opt.text}</span>
+        `;
+
+        btn.onclick = () => selectOption(opt);
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function selectOption(option) {
+      totalScore += option.score;
+      recordedTags.push({ category: questions[currentIdx].category, tag: option.tag, score: option.score });
+
+      currentIdx++;
+      if (currentIdx < questions.length) {
+        badgeStep.textContent = `Soru ${currentIdx + 1}/${questions.length}`;
+        renderQuestion();
+      } else {
+        progressBar.style.width = "100%";
+        showResults();
+      }
+    }
+
+    function showResults() {
+      stepQuiz.classList.add("hidden");
+      stepResult.classList.remove("hidden");
+      badgeStep.textContent = "Sonuç";
+
+      const maxScore = questions.length * 10;
+      const normalizedScore = Math.max(0, Math.round((totalScore / maxScore) * 100));
+
+      const candidateSummary = document.getElementById("candidateSummary");
+      const resultTitle = document.getElementById("resultTitle");
+      const scoreBadge = document.getElementById("scoreBadge");
+      const resultFeedback = document.getElementById("resultFeedback");
+      const resultIconWrapper = document.getElementById("resultIconWrapper");
+      const breakdownGrid = document.getElementById("breakdownGrid");
+
+      candidateSummary.textContent = `${candidateData.name} - ${candidateData.role}`;
+      scoreBadge.textContent = `Skor: ${normalizedScore} / 100`;
+
+      let verdict = "";
+      let verdictClass = "";
+      let icon = "";
+      let feedback = "";
+
+      if (normalizedScore >= 80) {
+        verdict = "UYGUN ADAY (Görüşmeye Çağır)";
+        verdictClass = "text-emerald-400";
+        icon = '<i class="fa-solid fa-circle-check text-emerald-400"></i>';
+        resultIconWrapper.className = "w-16 h-16 rounded-2xl mx-auto flex items-center justify-center text-3xl shadow-lg bg-emerald-500/20 border border-emerald-500/30";
+        feedback = "Aday; çocuk güvenliği, sabır, güler yüzlü iletişim ve iş disiplini konularında işletme standartlarına tam uyum göstermektedir. Telefon bağımlılığı riski düşük, veli krizinde soğukkanlı kalabilen bir profil.";
+      } else if (normalizedScore >= 60) {
+        verdict = "ŞARTLI / YEDEKLERDE DEĞERLENDİRİLEBİLİR";
+        verdictClass = "text-amber-400";
+        icon = '<i class="fa-solid fa-triangle-exclamation text-amber-400"></i>';
+        resultIconWrapper.className = "w-16 h-16 rounded-2xl mx-auto flex items-center justify-center text-3xl shadow-lg bg-amber-500/20 border border-amber-500/30";
+        feedback = "Aday temel kuralları biliyor ancak stresli durumlarda, broşür dağıtımındaki çekingenlikte veya veli iletişiminde oryantasyona ihtiyaç duyabilir. Birebir mülakatla teyit edilmesi önerilir.";
+      } else {
+        verdict = "UYGUN DEĞİL (Elenme Riski Yüksek)";
+        verdictClass = "text-rose-400";
+        icon = '<i class="fa-solid fa-circle-xmark text-rose-400"></i>';
+        resultIconWrapper.className = "w-16 h-16 rounded-2xl mx-auto flex items-center justify-center text-3xl shadow-lg bg-rose-500/20 border border-rose-500/30";
+        feedback = "Aday; telefonla vakit geçirme eğilimi, dikkatsizlik, çocuk güvenliği açığı veya kriz durumlarında kaba/sorumsuz reaksiyon göstermiştir. Çocuk parkı ortamında veli şikayeti yaratma riski yüksektir.";
+      }
+
+      resultTitle.className = `text-lg sm:text-xl font-bold ${verdictClass}`;
+      resultTitle.textContent = verdict;
+      resultIconWrapper.innerHTML = icon;
+      resultFeedback.textContent = feedback;
+
+      // Populate tags
+      breakdownGrid.innerHTML = recordedTags.map(item => `
+        <div class="p-2 rounded-lg bg-slate-900 border border-slate-700/50 flex flex-col">
+          <span class="text-[10px] text-slate-400 truncate">${item.category}</span>
+          <span class="font-bold ${item.score >= 8 ? 'text-emerald-400' : (item.score >= 2 ? 'text-amber-400' : 'text-rose-400')}">${item.tag}</span>
+        </div>
+      `).join('');
+
+      // WhatsApp Message Formatting
+      const resultMessage = `*TİKİ EĞLENCE DÜNYASI - İŞE ALIM DEĞERLENDİRME*%0A%0A` +
+        `👤 *Aday:* ${candidateData.name}%0A` +
+        `📞 *Tel:* ${candidateData.phone}%0A` +
+        `🎯 *Pozisyon:* ${candidateData.role}%0A` +
+        `📊 *Puan:* ${normalizedScore}/100%0A` +
+        `📌 *Değerlendirme:* ${verdict}%0A%0A` +
+        `*Yetkinlik Notları:*%0A` +
+        recordedTags.map(t => `- ${t.category}: ${t.tag}`).join('%0A');
+
+      document.getElementById("sendWhatsappBtn").onclick = () => {
+        window.open(`https://api.whatsapp.com/send?text=${resultMessage}`, '_blank');
+      };
+
+      document.getElementById("copyResultBtn").onclick = () => {
+        const textToCopy = `TİKİ EĞLENCE DÜNYASI - İŞ BAŞVURU SONUCU\nAday: ${candidateData.name}\nTel: ${candidateData.phone}\nPozisyon: ${candidateData.role}\nPuan: ${normalizedScore}/100\nSonuç: ${verdict}`;
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          alert("Sonuç panoya kopyalandı!");
+        });
+      };
+    }
+  </script>
+</body>
+</html>
+```eof
+
+### Hazırlanan Testin Özellikleri ve Kullanım Rehberi
+
+1. **Tamamen Mobil ve Telefonda Çalışır:** Adaylara WhatsApp üzerinden bu HTML dosyasının linkini açtırabilir veya dükkandaki bir tablet/telefonda doğrudan açıp teste sokabilirsiniz. Kurulum gerektirmez.
+2. **Kritik Sorunları Eleyen Vaka Senaryoları:**
+   - **Telefon Bağımlılığı & Kaytarma:** Park sakinleşince telefona bakma refleksi ölçülür.
+   - **Öfkeli Veli Karşılama:** Çocuğu çizilen/düşen veliye karşı soğukkanlılık ve empati testi.
+   - **Kayıp Çocuk & Güvenlik:** Ağlayan çocuğu yalnız bırakmama veya yanlış müdahale etmeme refleksi.
+   - **Broşür & Saha Tutumu:** İnsanlar almayınca pes edenler, çöpe atanlar ile doğru güler yüzlü yaklaşımı ayırt eder.
+   - **Hijyen & Çorap Kuralı:** Çocuk parklarının en büyük veli şikayeti konusu olan ayakkabı/çorap denetimi.
+3. **Otomatik Skor ve WhatsApp Butonu:** Aday testi bitirdiği an puanı (100 üzerinden), adayın güvenilirlik riskleri ve tek tuşla yetkiliye WhatsApp'tan gönderme butonu çıkar. Uygun olmayan adaylar anında elenir.
